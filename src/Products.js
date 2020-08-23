@@ -1,4 +1,5 @@
 import React from 'react'
+import { Table } from 'reactstrap'
 //import{Component}
 //class ...extends Component
 //follow the template put super() in it
@@ -32,12 +33,24 @@ class Products extends React.Component {
 
     render ()  {
         return (
-            <div>
-                <div>Products Place holder</div>
-                <div>{this.state.response.map(product =>
-                    <p key ={product.key}> {product.title} </p>
-                )}</div>
-            </div>
+            <Table bordered> 
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Title</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                {this.state.response.map(product =>
+                    <tr>
+                        <td key ={product.key}> {product._id} </td>
+                        <td key ={product.key}> {product.title} </td>
+                        <td key ={product.key}> {product.description} </td>
+                    </tr>
+                )}
+                </tbody>
+           </Table>
         )
     }
 }

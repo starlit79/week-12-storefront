@@ -33,9 +33,14 @@ class Categories extends React.Component {
     render ()  {
         return (
             <div>
-                <div>Categories Place holder</div>
+                <h1 >Categories Place holder</h1>
                 <div>{this.state.response.map(category =>
-                    <p key ={category.key}> {category.name} </p>
+                    <table>
+                        <tr key ={category.key}>
+                        <td> {category.name} </td>
+                        <td> {category.description} </td>
+                        </tr>
+                    </table>
                 )}</div>
             </div>
         )
