@@ -34,6 +34,11 @@ tr {
   color: white;
 }
 
+.h1{
+  align-content: center;
+  justify-content: center;
+}
+
 .App-link {
   color: #61dafb;
 }

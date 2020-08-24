@@ -1,10 +1,11 @@
 import React from 'react'
+import { Table } from 'reactstrap'
 //import{Component}
 //class ...extends Component
 //follow the template put super() in it
 //read react component in open source
 
-class ProductTypes extends React.Component {
+class productTypes extends React.Component {
     constructor () {
         super()
         this.state = {
@@ -33,13 +34,31 @@ class ProductTypes extends React.Component {
     render ()  {
         return (
             <div>
-                <div>ProductTypes Place holder</div>
-                <div>{this.state.response.map(productType =>
-                    <p key ={productType.key}> {productType.title} </p>
-                )}</div>
+                <h1 className = 'text-center'>Product</h1>
+            <Table bordered> 
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Title</th>
+                        <th>Description</th>
+                        <th>Added By</th>
+                    </tr>
+                </thead>
+                <tbody>
+                {this.state.response.map(productType =>
+                    <tr>
+                        <td key ={productType.key}> {productType._id} </td>
+                        <td key ={productType.key}> {productType.title} </td>
+                        <td key ={productType.key}> {productType.description} </td>
+                        <td key ={productType.key}> {productType.addedBy} </td>
+
+                    </tr>
+                )}
+                </tbody>
+           </Table>
             </div>
         )
     }
 }
 
-export default ProductTypes
+export default productTypes

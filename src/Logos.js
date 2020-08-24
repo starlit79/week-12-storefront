@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Table } from 'reactstrap'
 
 class Logos extends Component {
     constructor () {
@@ -11,7 +12,7 @@ class Logos extends Component {
 componentDidMount() {
     this.callApi()
     .then((response) => {
-        this.setState({ response: response.length + ' items found '})
+        this.setState({ response })
     })
     .catch(err => console.log(err))
 }
@@ -27,9 +28,26 @@ callApi = async () => {
 render () {
     return (
         <div>
-            <div>Logos Place Holder</div>
-            <div>{this.state.response}</div>
-        </div>
+        <h1 className= 'text-center'>Logos</h1>
+        <Table bordered> 
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>name</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                {this.state.response.map(logo =>
+                    <tr>
+                        <td key ={logo.key}> {logo._id} </td>
+                        <td key ={logo.key}> {logo.name} </td>
+                        <td key ={logo.key}> {logo.description} </td>
+                    </tr>
+                )}
+                </tbody>
+           </Table>
+           </div>
         )
     }
 }

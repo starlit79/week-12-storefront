@@ -1,4 +1,5 @@
 import React from 'react'
+import { Table } from 'reactstrap'
 //import{Component}
 //class ...extends Component
 //follow the template put super() in it
@@ -33,11 +34,28 @@ class Variations extends React.Component {
     render ()  {
         return (
             <div>
-                <div>Variations Place holder</div>
-                <div>{this.state.response.map(variation =>
-                    <p key ={variation.key}> {variation.color} </p>
-                )}</div>
-            </div>
+            <h1 className = 'text-center'>Variations</h1>
+            <Table bordered> 
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Name</th>
+                        <th>Color</th>
+                        <th>Added By</th>
+                    </tr>
+                </thead>
+                <tbody>
+                {this.state.response.map(variation =>
+                    <tr>
+                        <td key ={variation.key}> {variation._id} </td>
+                        <td key ={variation.key}> {variation.name} </td>
+                        <td key ={variation.key}> {variation.Color} </td>
+                        <td key ={variation.key}> {variation.addedBy} </td>
+                    </tr>
+                )}
+                </tbody>
+           </Table>
+           </div>
         )
     }
 }
